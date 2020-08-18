@@ -2,12 +2,24 @@
 
 # TODO: Step 1 - get shape (it can't be blank and must be a valid shape!)
 def get_shape():
-    return 'pyramid'
+    shapes = ["pyramid", "square", "triangle"]
+    shape = input("Shape?: ")
+
+    while shape not in shapes:
+        shape = input("Shape?: ")
+
+    return shape
+        
 
 
 # TODO: Step 1 - get height (it must be int!)
 def get_height():
-    return 0
+    height = int(input("Height?: "))
+
+    while height > 80 or height < 0:
+        height = int(input("Height?: "))
+
+    return height
 
 
 # TODO: Step 2
