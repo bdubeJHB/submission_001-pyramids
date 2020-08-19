@@ -3,24 +3,13 @@
 # TODO: Step 1 - get shape (it can't be blank and must be a valid shape!)
 def get_shape():
     shapes = ["pyramid", "square", "triangle"]
-    shape = 'F'
 
-    while type(shape) == None or shape not in shapes:
-        try:
-            shape = input("Shape?: ")
-        except EOFError:
-            shape = 'F'
-            continue
-        except ValueError:
-            shape = 'F'
-            continue  
-        except:
-            shape = 'F'
-            continue
-    #print(shape)
+    while 1:
+        shape = input("Shape?: ").lower()
+        if shape or shape in shapes:
+            break
 
     return shape
-        
 
 
 # TODO: Step 1 - get height (it must be int!)
@@ -37,7 +26,21 @@ def get_height():
 
 # TODO: Step 2
 def draw_pyramid(height, outline):
-    print('pyramid')
+    i = 1
+    string = ""
+
+    while i < height:
+        j = 1
+        while j < (height * 2) - 1:
+            if i - height == 0:
+                string += "*"
+            else:
+                string += " "
+            j += 1
+
+        string += "\n"
+        i += 1
+    print(string)
 
 
 # TODO: Step 3
