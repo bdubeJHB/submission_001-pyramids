@@ -3,16 +3,19 @@
 # TODO: Step 1 - get shape (it can't be blank and must be a valid shape!)
 def get_shape():
     shapes = ["pyramid", "square", "triangle"]
-    shape = None
+    shape = 'F'
 
     while type(shape) == None or shape not in shapes:
         try:
             shape = input("Shape?: ")
         except EOFError:
-            shape = None
+            shape = 'F'
             continue
         except ValueError:
-            shape = None
+            shape = 'F'
+            continue  
+        except:
+            shape = 'F'
             continue
     #print(shape)
 
