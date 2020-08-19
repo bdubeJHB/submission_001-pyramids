@@ -3,10 +3,18 @@
 # TODO: Step 1 - get shape (it can't be blank and must be a valid shape!)
 def get_shape():
     shapes = ["pyramid", "square", "triangle"]
-    shape = input("Shape?: ")
+    shape = None
 
-    while shape not in shapes:
-        shape = input("Shape?: ")
+    while type(shape) == None or shape not in shapes:
+        try:
+            shape = input("Shape?: ")
+        except EOFError:
+            shape = None
+            continue
+        except ValueError:
+            shape = None
+            continue
+    #print(shape)
 
     return shape
         
@@ -14,12 +22,14 @@ def get_shape():
 
 # TODO: Step 1 - get height (it must be int!)
 def get_height():
-    height = int(input("Height?: "))
+    height = "0"
 
-    while height > 80 or height < 0:
-        height = int(input("Height?: "))
+    while int(height) > 80 or int(height) < 1:
+        height = input("Height?: ")
+        if not height.isdigit():
+            height = "0"
 
-    return height
+    return int(height)
 
 
 # TODO: Step 2
