@@ -23,11 +23,11 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual('pyramid', shape_param)
 
         # TODO: enable this test to check if only valid shapes allowed as input
-        # with captured_io(StringIO('invalid\n')) as (out, err):
-        #     shape_param = draw.get_shape()
-        # output = out.getvalue().strip()
-        # self.assertEqual('Shape?:', output)
-        # self.assertEqual(None, shape_param)
+        with captured_io(StringIO('invalid\n')) as (out, err):
+            shape_param = draw.get_shape()
+        output = out.getvalue().strip()
+        self.assertEqual('Shape?:', output)
+        self.assertEqual(None, shape_param)
 
         with captured_io(StringIO('1\n')) as (out, err):
             height_param = draw.get_height()

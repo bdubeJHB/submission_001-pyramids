@@ -6,7 +6,7 @@ def get_shape():
 
     while 1:
         shape = input("Shape?: ").lower()
-        if shape or shape in shapes:
+        if shape and shape in shapes:
             break
 
     return shape
@@ -26,21 +26,24 @@ def get_height():
 
 # TODO: Step 2
 def draw_pyramid(height, outline):
-    i = 1
-    string = ""
+    y = 1
+    pyramid = ""
 
-    while i < height:
-        j = 1
-        while j < (height * 2) - 1:
-            if i - height == 0:
-                string += "*"
+    while y <= height:
+        x = 1
+        while x < (height * 2):
+            if x <= abs(height - y):
+                print("Printing because: 'val = " + str(height) + "' and 'x = " + str(x) + "' and 'y = " + str(y) + "\nUsing the x <= |val - y|\tthis is now: " + str(x) + " < (" + str(abs(height - y)) + ")")
+                pyramid += "*"
             else:
-                string += " "
-            j += 1
+                pyramid += " "
+            x += 1
+            if x > height + (y - 1):
+                break
 
-        string += "\n"
-        i += 1
-    print(string)
+        pyramid += "\n"
+        y += 1
+    print(pyramid)
 
 
 # TODO: Step 3
