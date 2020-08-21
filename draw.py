@@ -5,7 +5,8 @@ def get_shape():
     shapes = ["pyramid", "square", "triangle"]
 
     while 1:
-        shape = input("Shape?: ").lower()
+        shape = input("Shape?: ").strip()
+        shape = shape.lower()
         if shape and shape in shapes:
             break
 
@@ -81,6 +82,29 @@ def draw_triangle(height, outline):
             x += 1
 
 
+def draw_star(height, outline):
+    """
+        *
+       *+*
+  *****+++*****
+    *+++++++*
+     *+++++*
+    *++* *++*
+   *+*     *+*
+  **         **
+ *             *
+    """
+    pass
+
+
+def draw_heart(height, outline):
+    pass
+
+
+def draw_octagon(height, outline):
+    pass
+
+
 # TODO: Steps 2 to 4, 6 - add support for other shapes
 def draw(shape, height, outline):
     if shape == "pyramid":
@@ -110,6 +134,8 @@ def get_outline():
 
             if outline == 'y':
                 return True
+            elif outline == 'n':
+                return False
     
     return False
 
