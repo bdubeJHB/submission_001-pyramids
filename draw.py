@@ -99,6 +99,18 @@ def draw(shape, height, outline):
 
 # TODO: Step 5 - get input from user to draw outline or solid
 def get_outline():
+    outline = "F"
+
+    while 1:
+        outline = input("Outline only? (y/N): ")
+
+        if type(outline) == "String":
+            outline = outline.strip()
+            outline = outline.lower()
+
+            if outline == 'y':
+                return True
+    
     return False
 
 
