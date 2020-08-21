@@ -26,7 +26,6 @@ def get_height():
 
 # TODO: Step 2
 def draw_pyramid(height, outline):
-    outline = True
     if outline and height > 2:
         y = 0
         while y < height:
@@ -52,23 +51,50 @@ def draw_pyramid(height, outline):
 def draw_square(height, outline):
     x = 1
 
-    while(x <= height):
-        print('*' * height)
-        x += 1
+    if outline and height > 2:
+        while x <= height:
+            if x > 1 and x != height:
+                print('*' + (' ' * (height - 2)) + '*')
+            else:
+                print('*' * height)
+            x += 1
+    else:
+        while x <= height:
+            print('*' * height)
+            x += 1
 
 
 # TODO: Step 4
 def draw_triangle(height, outline):
     x = 1
 
-    while x <= height:
-        print('*' * x)
-        x += 1
+    if outline and height > 2:
+        while x <= height:
+            if x < 3 or x == height:
+                print('*' * x)
+            elif x < height:
+                print('*' + (' ' * (x - 2)) + '*')
+            x += 1
+    else:
+        while x <= height:
+            print('*' * x)
+            x += 1
 
 
 # TODO: Steps 2 to 4, 6 - add support for other shapes
 def draw(shape, height, outline):
-    draw_pyramid(height, outline)
+    if shape == "pyramid":
+        draw_pyramid(height, outline)
+    if shape == "square":
+        draw_square(height, outline)
+    if shape == "triangle":
+        draw_triangle(height, outline)
+    if shape == "star":
+        draw_star(heigh, outline)
+    if shape == "heart":
+        draw_heart(height, outline)
+    if shape == "octagon":
+        draw_octagon(height, outline)
 
 
 # TODO: Step 5 - get input from user to draw outline or solid
