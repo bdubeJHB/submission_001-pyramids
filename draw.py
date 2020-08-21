@@ -26,17 +26,24 @@ def get_height():
 
 # TODO: Step 2
 def draw_pyramid(height, outline):
-    if outline:
+    outline = True
+    if outline and height > 2:
         y = 0
-        while y <= height:
-            print(' ' * (height - y), end='')
-            print('*', end='')
-            if not y:
-                print
+        while y < height:
+            print(' ' * (height - y - 1), end = '')
+            if y == height - 1:
+                print('*' * (height * 2 - 2), end = '')
+            elif y:
+                print('*', end = '')
+                print(' ' * (y * 2 - 1), end = '')
+
+            print('*')
+            y += 1
+            continue
     else:
         y = 1
         while y <= height:
-            print(' ' * (height - y), end='')
+            print(' ' * (height - y), end = '')
             print('*' * (2 * y - 1))
             y += 1
 
