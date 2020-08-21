@@ -89,7 +89,10 @@ def draw_kite(height, outline):
             print('*')
             y += 1
             continue
-    else:
+    elif height == 2:
+        print("*\n")
+        
+        #delete
         y = 1
         while y <= height:
             print(' ' * (height - y), end = '')
