@@ -26,34 +26,37 @@ def get_height():
 
 # TODO: Step 2
 def draw_pyramid(height, outline):
-    y = 1
-    pyramid = ""
-
-    while y <= height:
-        x = 1
-        while x < (height * 2):
-            if x <= abs(height - y):
-                print("Printing because: 'val = " + str(height) + "' and 'x = " + str(x) + "' and 'y = " + str(y) + "\nUsing the x <= |val - y|\tthis is now: " + str(x) + " < (" + str(abs(height - y)) + ")")
-                pyramid += "*"
-            else:
-                pyramid += " "
-            x += 1
-            if x > height + (y - 1):
-                break
-
-        pyramid += "\n"
-        y += 1
-    print(pyramid)
+    if outline:
+        y = 0
+        while y <= height:
+            print(' ' * (height - y), end='')
+            print('*', end='')
+            if not y:
+                print
+    else:
+        y = 1
+        while y <= height:
+            print(' ' * (height - y), end='')
+            print('*' * (2 * y - 1))
+            y += 1
 
 
 # TODO: Step 3
 def draw_square(height, outline):
-    print('square')
+    x = 1
+
+    while(x <= height):
+        print('*' * height)
+        x += 1
 
 
 # TODO: Step 4
 def draw_triangle(height, outline):
-    print('triangle')
+    x = 1
+
+    while x <= height:
+        print('*' * x)
+        x += 1
 
 
 # TODO: Steps 2 to 4, 6 - add support for other shapes
