@@ -1,11 +1,15 @@
 def get_shape():
-    shapes = ["pyramid", "square", "triangle", "circle", "heart", "Octagon"]
+    shapes = ["pyramid", "square", "triangle", "kite", "heart", "Octagon"]
 
     while 1:
-        shape = input("Shape?: ").strip()
-        shape = shape.lower()
-        if shape and shape in shapes:
-            break
+        try:
+            shape = input("Shape?: ")
+            shape = shape.strip()
+            shape = shape.lower()
+            if shape and shape in shapes:
+                break
+        except EOFError:
+            return None
 
     return shape
 
@@ -75,71 +79,6 @@ def draw_triangle(height, outline):
             x += 1
 
 
-def draw_kite(height, outline):
-    if outline and height > 2:
-        y = 0
-        while y < height:
-            print(' ' * (height - y - 1), end = '')
-            if y == height - 1:
-                print('*' * (height * 2 - 2), end = '')
-            elif y:
-                print('*', end = '')
-                print(' ' * (y * 2 - 1), end = '')
-
-            print('*')
-            y += 1
-            continue
-    elif height == 2:
-        print("*\n")
-        
-        #delete
-        y = 1
-        while y <= height:
-            print(' ' * (height - y), end = '')
-            print('*' * (2 * y - 1))
-            y += 1
-
-
-def draw_heart(height, outline):
-"""
-*
-
-* *
- *
-
- * *
-*****
-  *
-
- *  *
-******
- ****
-  **
-
- ** **
-*******
- *****
-  ***
-   *
-
-
-  **  **
-**********
- ********
-  ******
-   ***
-    *
-
-   *   *
-  *** ***
-"""
-    pass
-
-
-def draw_octagon(height, outline):
-    pass
-
-
 def draw(shape, height, outline):
     if shape == "pyramid":
         draw_pyramid(height, outline)
@@ -147,8 +86,8 @@ def draw(shape, height, outline):
         draw_square(height, outline)
     if shape == "triangle":
         draw_triangle(height, outline)
-    if shape == "star":
-        draw_star(heigh, outline)
+    if shape == "kite":
+        draw_kite(heigh, outline)
     if shape == "heart":
         draw_heart(height, outline)
     if shape == "octagon":
